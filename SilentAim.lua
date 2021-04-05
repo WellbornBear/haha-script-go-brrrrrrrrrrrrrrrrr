@@ -10,7 +10,6 @@ local Character = Player.Character or Player.CharacterAdded:Wait()
 local HumanoidRootPart = Character.HumanoidRootPart
 
 local ZombieStorage = Workspace:WaitForChild("Zombie Storage")
-local EquipStorage = Player:WaitForChild("EquipStorage")
 
 local function GetClosestZombie() [nonamecall]
     local MagnitudeDistance = math.huge
