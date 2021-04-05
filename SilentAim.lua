@@ -33,7 +33,7 @@ end
 
 local function Execute()
     local Metatable = getrawmetatable(game)
-    local OldMetatable = Metatable.__namecall
+    local OldNamecall = Metatable.__namecall
 
     setreadonly(Metatable, false)
 
@@ -55,11 +55,12 @@ local function Execute()
             end
         end
 
-        return OldMetatable(self, unpack(Arguments))
+        return OldNamecall(self, unpack(Arguments))
     end)
     
     getgenv().ResetMetatableNamecall = function()
-        Metatable.__namecall = OldMetatable
+        Metatable.__namecall = OldNamecall
+        setreadonly(Metatable, true)
     end
 end
 
@@ -69,4 +70,4 @@ warn("Script by: WellbornBear, OrangeSteak")
 warn("Join discord: discord.gg/Ak7MGDEsfu")
 setclipboard("discord.gg/Ak7MGDEsfu")
 
--- if you change credits im gonna eat you
+-- im gonna eat you if you change credits
